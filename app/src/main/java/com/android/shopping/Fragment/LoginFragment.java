@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class MainFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
     @BindView(R.id.emailEdit)
     EditText emailEditText;
