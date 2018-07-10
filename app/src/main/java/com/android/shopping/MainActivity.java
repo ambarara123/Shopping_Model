@@ -1,5 +1,6 @@
 package com.android.shopping;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -14,7 +15,7 @@ import android.view.MenuItem;
 import com.android.shopping.Fragment.ElectronicsFragment;
 import com.android.shopping.Fragment.FashionFragment;
 import com.android.shopping.Fragment.HomeFragment;
-import com.android.shopping.Fragment.LoginFragment;
+import com.android.shopping.Fragment.MainScreenFragment;
 import com.android.shopping.Fragment.SportsFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         fragmentManager = getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
-                .add(R.id.detail_fragment,new LoginFragment(),"mainfragment")
+                .add(R.id.detail_fragment,new MainScreenFragment(),"mainfragment")
                 .commit();
 
 
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(MainActivity.this, AddToCartActivity.class));
             return true;
         }
 
