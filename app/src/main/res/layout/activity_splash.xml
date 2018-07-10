@@ -7,6 +7,19 @@
     tools:context=".SplashActivity"
     android:background="@drawable/back_graident">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Shopping Model"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"/>
 
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"/>
 
 </RelativeLayout>
