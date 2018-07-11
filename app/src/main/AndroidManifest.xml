@@ -32,7 +32,8 @@
         <activity android:name=".LoginActivity" >
 
         </activity>
-        <activity android:name=".AddToCartActivity">
+        <activity android:name=".AddToCartActivity"
+            android:label="Cart">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

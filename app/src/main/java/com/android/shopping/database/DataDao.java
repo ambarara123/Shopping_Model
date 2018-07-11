@@ -13,7 +13,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 @Dao
 public interface DataDao {
-    //getting live data list from this
+    //getting data list from this
     @Query("SELECT * FROM `table`")
     List<Entity> getFavourite();
 
@@ -21,10 +21,10 @@ public interface DataDao {
     void insert(Entity entity);
 
     @Delete
-    void deleteFav(Entity entity );
+    void delete(Entity entity );
 
     @Update(onConflict = REPLACE)
-    void updateFav(Entity entity);
+    void update(Entity entity);
 
     @Query("DELETE FROM `table` WHERE itemName =:name")
     void deleteByName(String name);
