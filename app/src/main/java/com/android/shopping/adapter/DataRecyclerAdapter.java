@@ -31,21 +31,23 @@ public class DataRecyclerAdapter extends RecyclerView.Adapter<DataRecyclerAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.item_list, parent ,false);
+        View view = inflater.inflate(R.layout.cart_list, parent ,false);
 
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.itemTextView.setText(names.get(position).getItemName());
-        //final com.android.shopping.database.Entity entity = new com.android.shopping.database.Entity(names.get(position));
+        holder.itemTextView.setText(names.get(position).getItemName().toString());
+        com.android.shopping.database.Entity entity = new com.android.shopping.database.Entity(names.get(position).getItemName());
         holder.cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Database database = Database.getInstance(context);
-             //   database.dataDao().insert(entity);
-                Toast.makeText(context, names.get(position)+" is added to cart", Toast.LENGTH_SHORT).show();
+                database.dataDao().deleteByName(names.get(position).getItemName());
+                names.remove(position);
+                notifyDataSetChanged();
+                Toast.makeText(context, names.get(position).getItemName()+" is removed from cart", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -67,6 +69,7 @@ public class DataRecyclerAdapter extends RecyclerView.Adapter<DataRecyclerAdapte
             itemTextView = itemView.findViewById(R.id.itemtextView1);
             cartButton = itemView.findViewById(R.id.itemButton1);
         }
+
     }
 }
 

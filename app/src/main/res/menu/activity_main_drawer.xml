@@ -8,6 +8,9 @@
 
         android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_category"
+            android:title="All Categories" />
+        <item
             android:id="@+id/nav_fashion"
             android:title="Fashion" />
         <item
@@ -23,9 +26,6 @@
 
     <item android:title="Tools">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:title="Share" />
             <item
                 android:id="@+id/nav_logout"
                 android:title="Logout" />

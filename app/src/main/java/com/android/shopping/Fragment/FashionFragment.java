@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.android.shopping.R;
 import com.android.shopping.adapter.RecyclerAdapter;
+import com.android.shopping.database.Database;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class FashionFragment extends Fragment {
     RecyclerView recyclerView;
 
     RecyclerAdapter adapter;
+
 
     public static ArrayList<String> list;
 
@@ -43,6 +45,7 @@ public class FashionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fashion, container, false);
         ButterKnife.bind(this,view);
         getActivity().setTitle("Fashion");
+
 
         list = new ArrayList<>();
         list.add("Clothing");

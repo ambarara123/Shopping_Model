@@ -1,6 +1,7 @@
 package com.android.shopping;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -123,9 +124,17 @@ public class MainActivity extends AppCompatActivity
                     .addToBackStack("sports")
                     .commit();
 
-        } else if (id == R.id.nav_share) {
+        }else if (id == R.id.nav_category) {
+            fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
+                    .add(R.id.detail_fragment,new MainScreenFragment(), "main")
+                    .commit();
 
         } else if (id == R.id.nav_logout) {
+            SharedPreferences preferences = getSharedPreferences("save",MODE_PRIVATE);
+            preferences.edit().clear().apply();
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            finish();
 
         }
 

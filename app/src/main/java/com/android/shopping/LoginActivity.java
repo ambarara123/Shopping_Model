@@ -1,6 +1,8 @@
 package com.android.shopping;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -42,16 +44,22 @@ public class LoginActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;
 
+    SharedPreferences.Editor editor;
+    SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        preferences = getSharedPreferences("save",MODE_PRIVATE);
 
+        editor = preferences.edit();
 
         //binding views with butterknife
         ButterKnife.bind(this);
         showHidePass();
+
 
         fragmentManager = getSupportFragmentManager();
 
@@ -142,6 +150,8 @@ public class LoginActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    editor.putBoolean("data",true);
+                    editor.apply();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                     dialogFragment.dismiss();

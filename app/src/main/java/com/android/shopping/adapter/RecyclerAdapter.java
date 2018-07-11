@@ -40,16 +40,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        final Database database = Database.getInstance(context);
         holder.itemTextView.setText(names.get(position));
+        if (database.dataDao().getByName(names.get(position)).isEmpty()) {
+            holder.cartButton.setText("Add to Cart");
+        }else {
+            holder.cartButton.setText("Added to cart");
+        }
         final com.android.shopping.database.Entity entity = new com.android.shopping.database.Entity(names.get(position));
         holder.cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Database database = Database.getInstance(context);
-                database.dataDao().insert(entity);
-                Toast.makeText(context, names.get(position)+" is added to cart", Toast.LENGTH_SHORT).show();
-
+                if (database.dataDao().getByName(names.get(position)).isEmpty()) {
+                    database.dataDao().insert(entity);
+                    holder.cartButton.setText("Added to cart");
+                    Toast.makeText(context, names.get(position) + " is added to cart", Toast.LENGTH_SHORT).show();
+                }else {
+                    holder.cartButton.setText("Added to cart");
+                    Toast.makeText(context, "Already in cart", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

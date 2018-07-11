@@ -26,4 +26,10 @@ public interface DataDao {
     @Update(onConflict = REPLACE)
     void updateFav(Entity entity);
 
+    @Query("DELETE FROM `table` WHERE itemName =:name")
+    void deleteByName(String name);
+    //get row of name
+    @Query("SELECT * FROM `table` WHERE itemName = :name")
+    List<Entity> getByName(String name);
+
 }
