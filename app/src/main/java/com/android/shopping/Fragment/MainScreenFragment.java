@@ -40,6 +40,7 @@ public class MainScreenFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main_screen, container, false);
         ButterKnife.bind(this,view);
+        getActivity().setTitle("All Categories");
 
         fragmentManager = getFragmentManager();
         cardClickListeners();
@@ -53,7 +54,8 @@ public class MainScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fragmentManager.beginTransaction()
-                        .replace(R.id.detail_fragment, new FashionFragment(), "fashion")
+                        .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
+                        .add(R.id.detail_fragment, new FashionFragment(), "fashion")
                         .addToBackStack("fashion")
                         .commit();
             }
@@ -63,6 +65,7 @@ public class MainScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
                         .add(R.id.detail_fragment, new ElectronicsFragment(),"electronics")
                         .addToBackStack("electronics")
                         .commit();
@@ -73,6 +76,7 @@ public class MainScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
                         .add(R.id.detail_fragment, new HomeFragment(), "home")
                         .addToBackStack("home")
                         .commit();
@@ -83,6 +87,7 @@ public class MainScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
                         .add(R.id.detail_fragment,new SportsFragment(), "sports")
                         .addToBackStack("sports")
                         .commit();

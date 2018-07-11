@@ -42,6 +42,7 @@ public class FashionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fashion, container, false);
         ButterKnife.bind(this,view);
+        getActivity().setTitle("Fashion");
 
         list = new ArrayList<>();
         list.add("Clothing");

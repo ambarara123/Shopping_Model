@@ -64,6 +64,12 @@
                     android:paddingLeft="10dp" />
             </android.support.design.widget.TextInputLayout>
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="show password"
+                android:id="@+id/checkboxPass"/>
+
 
             <Button
                 android:id="@+id/signInButton"

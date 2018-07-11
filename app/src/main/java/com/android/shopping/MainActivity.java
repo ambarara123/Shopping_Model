@@ -98,23 +98,27 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_fashion) {
             // Handle the camera action
             fragmentManager.beginTransaction()
-                    .replace(R.id.detail_fragment, new FashionFragment(), "fashion")
+                    .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
+                    .add(R.id.detail_fragment, new FashionFragment(), "fashion")
                     .addToBackStack("fashion")
                     .commit();
         } else if (id == R.id.nav_electronics) {
             fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
                     .add(R.id.detail_fragment, new ElectronicsFragment(),"electronics")
                     .addToBackStack("electronics")
                     .commit();
 
         } else if (id == R.id.nav_home) {
             fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
                     .add(R.id.detail_fragment, new HomeFragment(), "home")
                     .addToBackStack("home")
                     .commit();
 
         } else if (id == R.id.nav_sports) {
             fragmentManager.beginTransaction()
+                    .setCustomAnimations(R.anim.leftt_enter, R.anim.right_out)
                     .add(R.id.detail_fragment,new SportsFragment(), "sports")
                     .addToBackStack("sports")
                     .commit();

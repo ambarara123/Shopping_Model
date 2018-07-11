@@ -44,6 +44,8 @@ public class SportsFragment extends Fragment {
 
         ButterKnife.bind(this,view);
 
+        getActivity().setTitle("Sports");
+
         list = new ArrayList<>();
         list.add("Cricket Bat");
         list.add("CricketBall");

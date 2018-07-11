@@ -44,6 +44,8 @@ public class HomeFragment extends Fragment {
 
         ButterKnife.bind(this,view);
 
+        getActivity().setTitle("Home and Furnitues");
+
         list = new ArrayList<>();
         list.add("Beds");
         list.add("Matress");

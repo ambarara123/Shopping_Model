@@ -43,6 +43,7 @@ public class ElectronicsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_electronics, container, false);
 
         ButterKnife.bind(this,view);
+        getActivity().setTitle("Electronics");
 
         list = new ArrayList<>();
         list.add("Laptop");
