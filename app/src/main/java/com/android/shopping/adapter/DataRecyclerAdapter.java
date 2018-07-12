@@ -44,10 +44,11 @@ public class DataRecyclerAdapter extends RecyclerView.Adapter<DataRecyclerAdapte
             @Override
             public void onClick(View v) {
                 Database database = Database.getInstance(context);
-                database.dataDao().deleteByName(names.get(position).getItemName());
+                database.dataDao().deleteById(position);
+                Toast.makeText(context, names.get(position).getItemName()+" is removed from cart", Toast.LENGTH_SHORT).show();
+
                 names.remove(position);
                 notifyDataSetChanged();
-                Toast.makeText(context, names.get(position).getItemName()+" is removed from cart", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -61,7 +62,6 @@ public class DataRecyclerAdapter extends RecyclerView.Adapter<DataRecyclerAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-
         TextView itemTextView;
         Button cartButton;
         public ViewHolder(View itemView) {
@@ -72,4 +72,3 @@ public class DataRecyclerAdapter extends RecyclerView.Adapter<DataRecyclerAdapte
 
     }
 }
-

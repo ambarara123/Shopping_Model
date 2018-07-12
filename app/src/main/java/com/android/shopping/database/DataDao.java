@@ -32,4 +32,8 @@ public interface DataDao {
     @Query("SELECT * FROM `table` WHERE itemName = :name")
     List<Entity> getByName(String name);
 
+    @Query("DELETE FROM `table` WHERE id=:id")
+    void deleteById(int id);
+
+
 }
